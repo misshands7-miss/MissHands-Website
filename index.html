@@ -4,417 +4,586 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MissHands | Handmade With Love</title>
+    <title>MissHands | Handmade with Love</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<!-- ================================
+     HEADER
+================================ -->
 
-    <header class="navbar">
+<header class="site-header">
 
-        <div class="logo">
-            🪻 MissHands
-        </div>
+    <div class="header-left">
+        <button class="menu-button">☰</button>
+    </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#shop">Shop</a>
-            <a href="#custom">Custom</a>
-            <a href="#about">About</a>
-        </nav>
+    <div class="logo-area">
+        <a href="#home" class="logo">MissHands ♡</a>
+        <p>Little things, made with love ♡</p>
+    </div>
+
+    <div class="header-icons">
+        <button>⌕</button>
+        <button>♙</button>
 
         <button class="cart-button" onclick="openCart()">
-            🛒 <span id="cart-count">0</span>
+            🛍
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+
+</header>
+
+
+<!-- ================================
+     NAVIGATION
+================================ -->
+
+<nav class="main-nav">
+
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#customize">Customize</a>
+    <a href="#about">About</a>
+
+</nav>
+
+
+<main>
+
+<!-- ================================
+     HOME
+================================ -->
+
+<section id="home" class="hero-section">
+
+    <div class="hero-content">
+
+        <p class="small-title">HANDMADE WITH LOVE ♡</p>
+
+        <h1>
+            Handmade<br>
+            Phone Charms,<br>
+            Bracelets & Keychains ♡
+        </h1>
+
+        <p>
+            Tiny handmade pieces made to add
+            a little happiness to your everyday.
+        </p>
+
+        <a href="#shop" class="primary-button">
+            SHOP NOW →
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-placeholder">
+            Your beautiful product photo ♡
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ================================
+     FEATURE STRIP
+================================ -->
+
+<section class="feature-strip">
+
+    <div>
+        <span>♡</span>
+        <p>Handmade<br>with love</p>
+    </div>
+
+    <div>
+        <span>✧</span>
+        <p>Unique<br>& aesthetic</p>
+    </div>
+
+    <div>
+        <span>🎀</span>
+        <p>Small Business<br>Big Dreams</p>
+    </div>
+
+</section>
+
+
+<!-- ================================
+     OUR COLLECTION
+================================ -->
+
+<section class="collection-section">
+
+    <div class="section-heading">
+        <p>✧ OUR COLLECTION ✧</p>
+        <h2>Little pieces of happiness</h2>
+    </div>
+
+    <div class="category-preview-grid">
+
+        <a href="#phone-charms" class="category-preview">
+            <div class="category-image">
+                📱
+            </div>
+            <h3>Phone Charms</h3>
+            <span>→</span>
+        </a>
+
+        <a href="#bracelets" class="category-preview">
+            <div class="category-image">
+                ♡
+            </div>
+            <h3>Bracelets</h3>
+            <span>→</span>
+        </a>
+
+        <a href="#keychains" class="category-preview">
+            <div class="category-image">
+                🎀
+            </div>
+            <h3>Keychains</h3>
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     SHOP
+================================ -->
+
+<section id="shop" class="shop-section">
+
+    <div class="shop-heading">
+        <p>✿ PICK YOUR FAVOURITE ✿</p>
+        <h2>Shop</h2>
+        <span>Little handmade things, made just for you ♡</span>
+    </div>
+
+
+    <!-- MAIN CATEGORIES -->
+
+    <div class="shop-category-buttons">
+
+        <button onclick="showCategory('Phone Charms')">
+            Phone Charms
         </button>
 
-    </header>
+        <button onclick="showCategory('Bracelets')">
+            Bracelets
+        </button>
 
+        <button onclick="showCategory('Keychains')">
+            Keychains
+        </button>
 
-    <!-- ================= HOME ================= -->
+    </div>
 
-    <main>
 
-        <section id="home" class="hero">
+    <!-- ================================
+         PHONE CHARMS
+    ================================= -->
 
-            <div class="hero-content">
+    <section id="phone-charms" class="product-category-section">
 
-                <p class="small-heading">
-                    ✨ HANDMADE WITH LOVE ✨
-                </p>
+        <div class="category-title">
 
-                <h1>
-                    Little things,<br>
-                    <span>made with love.</span>
-                </h1>
+            <p>♡ SMALL CHARMS, BIG HAPPINESS ♡</p>
 
-                <p class="hero-text">
-                    Cute handmade charms, bracelets & keychains
-                    made specially for you. 🪻
-                </p>
+            <h2>Phone Charms</h2>
 
-                <div class="hero-buttons">
+            <span>
+                Choose your style
+            </span>
 
-                    <a href="#shop" class="primary-button">
-                        Shop Collection ✨
-                    </a>
+        </div>
 
-                    <a href="#custom" class="secondary-button">
-                        Custom Order 💜
-                    </a>
 
-                </div>
+        <div class="sub-category-buttons">
 
-            </div>
-
-
-            <div class="hero-decoration">
-
-                <div class="flower flower-one">✿</div>
-                <div class="flower flower-two">✧</div>
-                <div class="flower flower-three">🪻</div>
-
-                <div class="hero-card">
-
-                    <div class="sparkle">✦</div>
-
-                    <p>
-                        Handmade<br>
-                        just for you
-                    </p>
-
-                    <span>♡ MissHands ♡</span>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CATEGORIES ================= -->
-
-        <section class="categories">
-
-            <div class="section-heading">
-
-                <p>EXPLORE</p>
-
-                <h2>
-                    Shop by category 🪻
-                </h2>
-
-            </div>
-
-
-            <div class="category-grid">
-
-                <a href="#shop" class="category-card">
-
-                    <div class="category-icon">
-                        📿
-                    </div>
-
-                    <h3>Phone Charms</h3>
-
-                    <p>
-                        Cute little charms for your phone
-                    </p>
-
-                </a>
-
-
-                <a href="#shop" class="category-card">
-
-                    <div class="category-icon">
-                        💜
-                    </div>
-
-                    <h3>Bracelets</h3>
-
-                    <p>
-                        Handmade bracelets made with love
-                    </p>
-
-                </a>
-
-
-                <a href="#shop" class="category-card">
-
-                    <div class="category-icon">
-                        🔑
-                    </div>
-
-                    <h3>Keychains</h3>
-
-                    <p>
-                        Tiny accessories for your everyday
-                    </p>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= SHOP ================= -->
-
-        <section id="shop" class="shop-section">
-
-            <div class="section-heading">
-
-                <p>OUR COLLECTION</p>
-
-                <h2>
-                    Little pieces of happiness 💜
-                </h2>
-
-                <span>
-                    Our products will appear here.
-                </span>
-
-            </div>
-
-
-            <div id="product-container" class="product-grid">
-
-                <!-- Products will be added here with JavaScript -->
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CUSTOM ORDERS ================= -->
-
-        <section id="custom" class="custom-section">
-
-            <div class="custom-content">
-
-                <p class="small-heading">
-                    🪻 MADE JUST FOR YOU
-                </p>
-
-                <h2>
-                    Dream it.<br>
-                    We'll make it.
-                </h2>
-
-                <p>
-                    Have your own idea for a charm, bracelet
-                    or keychain? Tell us what you're imagining
-                    and let's create something special together.
-                </p>
-
-                <a href="#contact" class="primary-button">
-                    Request a Custom Order ✨
-                </a>
-
-            </div>
-
-
-            <div class="custom-decoration">
-
-                <div>🪻</div>
-                <div>💜</div>
-                <div>🩵</div>
-                <div>✦</div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= ABOUT ================= -->
-
-        <section id="about" class="about-section">
-
-            <div class="about-image">
-                🪻
-            </div>
-
-            <div class="about-content">
-
-                <p class="small-heading">
-                    ABOUT MISSHANDS
-                </p>
-
-                <h2>
-                    Handmade with a little
-                    bit of magic. ✨
-                </h2>
-
-                <p>
-                    MissHands is a handmade accessories brand
-                    creating cute little pieces that make
-                    everyday moments a little more special.
-                </p>
-
-                <p>
-                    Every piece is made with care, creativity
-                    and lots of love. 💜
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTACT ================= -->
-
-        <section id="contact" class="contact-section">
-
-            <div class="section-heading">
-
-                <p>LET'S CONNECT</p>
-
-                <h2>
-                    Have something in mind? 🪻
-                </h2>
-
-                <span>
-                    We'd love to hear from you.
-                </span>
-
-            </div>
-
-            <a
-                href="mailto:misshands7@gmail.com"
-                class="primary-button"
-            >
-                📩 Email MissHands
-            </a>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= CART ================= -->
-
-    <div id="cart-overlay" class="cart-overlay">
-
-        <div class="cart">
-
-            <button class="close-cart" onclick="closeCart()">
-                ✕
+            <button
+                class="active"
+                onclick="filterProducts('single')">
+                Single
             </button>
 
-            <h2>
-                Your Cart 🛒
-            </h2>
+            <button
+                onclick="filterProducts('double')">
+                Double
+            </button>
 
-            <div id="cart-items">
-                <p>Your cart is empty 🪻</p>
+            <button
+                onclick="filterProducts('mix')">
+                Mix & Match
+            </button>
+
+            <button
+                onclick="filterProducts('specials')">
+                Specials
+            </button>
+
+        </div>
+
+
+        <div
+            id="phone-charm-products"
+            class="product-grid">
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         BRACELETS
+    ================================= -->
+
+    <section id="bracelets" class="product-category-section">
+
+        <div class="category-title">
+
+            <p>♡ WEAR HAPPINESS ♡</p>
+
+            <h2>Bracelets</h2>
+
+            <span>
+                Find your little everyday favourite
+            </span>
+
+        </div>
+
+
+        <div class="sub-category-buttons">
+
+            <button class="active">
+                Beaded
+            </button>
+
+            <button>
+                Pearl
+            </button>
+
+            <button>
+                Clay
+            </button>
+
+            <button>
+                Charm
+            </button>
+
+        </div>
+
+
+        <div
+            id="bracelet-products"
+            class="product-grid">
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         KEYCHAINS
+    ================================= -->
+
+    <section id="keychains" class="product-category-section">
+
+        <div class="category-title">
+
+            <p>✿ LITTLE CHARMS FOR EVERYDAY ✿</p>
+
+            <h2>Keychains</h2>
+
+            <span>
+                Cute little things to carry with you
+            </span>
+
+        </div>
+
+
+        <div
+            id="keychain-products"
+            class="product-grid">
+        </div>
+
+    </section>
+
+</section>
+
+
+<!-- ================================
+     CUSTOMIZE
+================================ -->
+
+<section id="customize" class="customize-section">
+
+    <div class="category-title">
+
+        <p>✧ YOUR STYLE, YOUR CHARM ✧</p>
+
+        <h2>Customize Your Charm</h2>
+
+        <span>
+            Create something uniquely yours ♡
+        </span>
+
+    </div>
+
+
+    <div class="customize-layout">
+
+        <div class="custom-preview">
+
+            <div class="custom-placeholder">
+                Your charm preview ♡
             </div>
 
-            <div class="cart-total">
+        </div>
 
-                <span>Total</span>
 
-                <strong id="cart-total">
-                    ₹0
-                </strong>
+        <div class="custom-options">
+
+            <h3>Choose Base Type</h3>
+
+            <div class="option-buttons">
+
+                <button class="selected">
+                    Single
+                </button>
+
+                <button>
+                    Double
+                </button>
+
+                <button>
+                    Bracelet Style
+                </button>
+
+            </div>
+
+
+            <h3>Select Beads & Shapes</h3>
+
+            <div class="option-tabs">
+
+                <button>Beads</button>
+                <button>Shapes</button>
+                <button>Letters</button>
+                <button>Special</button>
 
             </div>
 
 
-            <!-- ================= ORDER FORM ================= -->
+            <div class="bead-options">
 
-            <div
-                id="order-form-container"
-                class="order-form-container"
-            >
+                <button>
+                    <span>●</span>
+                    Pearl
+                </button>
 
-                <h3>
-                    Complete Your Order 💜
-                </h3>
+                <button>
+                    <span>✧</span>
+                    Crystal
+                </button>
 
-                <form id="order-form">
+                <button>
+                    <span>●</span>
+                    Matte
+                </button>
 
-                    <input
-                        type="hidden"
-                        name="access_key"
-                        value="207430e1-7441-4850-a158-2f268f0048f8"
-                    >
+                <button>
+                    <span>✿</span>
+                    Colorful
+                </button>
 
-                    <input
-                        type="hidden"
-                        name="subject"
-                        value="New MissHands Order"
-                    >
+                <button>
+                    <span>♡</span>
+                    Heart
+                </button>
 
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                    >
+                <button>
+                    <span>★</span>
+                    Star
+                </button>
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        required
-                    >
+                <button>
+                    <span>✿</span>
+                    Flower
+                </button>
 
-                    <textarea
-                        name="message"
-                        id="order-message"
-                        placeholder="Order details"
-                        readonly
-                    ></textarea>
-
-                    <button
-                        type="submit"
-                        class="checkout-button"
-                    >
-                        Place Order 💌
-                    </button>
-
-                </form>
+                <button>
+                    <span>🎀</span>
+                    Bow
+                </button>
 
             </div>
+
+
+            <h3>Add Extras</h3>
+
+            <div class="option-buttons">
+
+                <button>Charm</button>
+                <button>Name Letter</button>
+                <button>Tiny Bow</button>
+                <button>None</button>
+
+            </div>
+
+
+            <button class="custom-add-button">
+                Add to Cart ♡
+            </button>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- ================= FOOTER ================= -->
 
-    <footer>
+<!-- ================================
+     ABOUT
+================================ -->
 
-        <div class="footer-logo">
-            🪻 MissHands
+<section id="about" class="about-section">
+
+    <p>♡ A LITTLE ABOUT US ♡</p>
+
+    <h2>Made by hand, made with love.</h2>
+
+    <p>
+        Every MissHands piece is handmade with care,
+        creativity and lots of love.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- ================================
+     CART
+================================ -->
+
+<div id="cart-overlay" class="cart-overlay">
+
+    <div class="cart">
+
+        <button
+            class="close-cart"
+            onclick="closeCart()">
+            ✕
+        </button>
+
+        <h2>Your Cart 🛒</h2>
+
+        <div id="cart-items">
+            <p>Your cart is empty 🪻</p>
         </div>
 
-        <p>
-            Handmade with a little bit of magic 💜
-        </p>
+        <div class="cart-total">
 
-        <div class="footer-links">
+            <span>Total</span>
 
-            <a href="#home">Home</a>
-            <a href="#shop">Shop</a>
-            <a href="#custom">Custom Orders</a>
-            <a href="#about">About</a>
+            <strong id="cart-total">
+                ₹0
+            </strong>
 
         </div>
 
-        <p class="copyright">
-            © 2026 MissHands. All rights reserved.
-        </p>
 
-    </footer>
+        <!-- KEEP YOUR EXISTING WEB3FORMS FORM HERE -->
+
+        <div
+            id="order-form-container"
+            class="order-form-container">
+
+            <h3>Complete Your Order 💜</h3>
+
+            <form id="order-form">
+
+                <!-- IMPORTANT:
+                     KEEP YOUR CURRENT WEB3FORMS ACCESS KEY
+                     HERE. DO NOT CHANGE IT. -->
+
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="207430e1-7441-4850-a158-2f268f0048f8">
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="New MissHands Order">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required>
+
+                <textarea
+                    name="message"
+                    id="order-message"
+                    placeholder="Order details"
+                    readonly>
+                </textarea>
+
+                <button
+                    type="submit"
+                    class="checkout-button">
+                    Place Order 💌
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 
-    <!-- ================= JAVASCRIPT ================= -->
+<!-- ================================
+     FOOTER
+================================ -->
 
-    <script src="script.js"></script>
+<footer>
+
+    <div class="footer-logo">
+        MissHands ♡
+    </div>
+
+    <p>
+        Little things, made with love ♡
+    </p>
+
+    <p>
+        © 2026 MissHands
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>

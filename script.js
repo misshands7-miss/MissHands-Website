@@ -21,17 +21,19 @@ const products = [
 
     {
         id: 3,
-        name: "Green Phone Charm",
+        name: "Green Single Phone Charm",
         price: 89,
         category: "Phone Charms",
+        type: "Single",
         image: "images/green-phonecharm.jpeg"
     },
 
     {
         id: 4,
-        name: "Pink Phone Charm",
+        name: "Pink Double Phone Charm",
         price: 89,
         category: "Phone Charms",
+        type: "Double",
         image: "images/pink-phonecharm.jpeg"
     }
 ];
@@ -45,31 +47,18 @@ let cart = [];
 
 
 // ================================
-// DISPLAY PRODUCTS
+// PRODUCT DISPLAY
 // ================================
 
-const productContainer =
-    document.getElementById("product-container");
+function createProductCard(product) {
+    return `
+        <div class="product-card">
 
-function displayProducts() {
-
-    productContainer.innerHTML = "";
-
-    products.forEach(product => {
-
-        const productCard =
-            document.createElement("div");
-
-        productCard.className = "product-card";
-
-        productCard.innerHTML = `
             <div class="product-image">
-
                 <img
                     src="${product.image}"
                     alt="${product.name}"
                 >
-
             </div>
 
             <div class="product-info">
@@ -94,32 +83,170 @@ function displayProducts() {
                 </button>
 
             </div>
-        `;
 
-        productContainer.appendChild(productCard);
-
-    });
-
+        </div>
+    `;
 }
 
 
 // ================================
-// ADD TO CART
+// DISPLAY ALL PRODUCTS
+// ================================
+
+function displayAllProducts() {
+
+    const phoneCharms =
+        document.getElementById("phone-charm-products");
+
+    const bracelets =
+        document.getElementById("bracelet-products");
+
+    const keychains =
+        document.getElementById("keychain-products");
+
+
+    if (phoneCharms) {
+        phoneCharms.innerHTML = products
+            .filter(product => product.category === "Phone Charms")
+            .map(createProductCard)
+            .join("");
+    }
+
+
+    if (bracelets) {
+        bracelets.innerHTML = products
+            .filter(product => product.category === "Bracelets")
+            .map(createProductCard)
+            .join("");
+    }
+
+
+    if (keychains) {
+        keychains.innerHTML = products
+            .filter(product => product.category === "Keychains")
+            .map(createProductCard)
+            .join("");
+    }
+}
+
+
+// ================================
+// PHONE CHARM FILTER
+// ONLY SINGLE + DOUBLE
+// ================================
+
+function filterProducts(type) {
+
+    const container =
+        document.getElementById("phone-charm-products");
+
+    if (!container) {
+        return;
+    }
+
+
+    const filteredProducts =
+        products.filter(product =>
+            product.category === "Phone Charms" &&
+            product.type === type
+        );
+
+
+    container.innerHTML =
+        filteredProducts
+            .map(createProductCard)
+            .join("");
+}
+
+
+// ================================
+// SHOW CATEGORY
+// ================================
+
+function showCategory(category) {
+
+    const phoneSection =
+        document.getElementById("phone-charms-section");
+
+    const braceletSection =
+        document.getElementById("bracelets-section");
+
+    const keychainSection =
+        document.getElementById("keychains-section");
+
+
+    if (phoneSection) {
+        phoneSection.style.display =
+            category === "Phone Charms"
+                ? "block"
+                : "none";
+    }
+
+
+    if (braceletSection) {
+        braceletSection.style.display =
+            category === "Bracelets"
+                ? "block"
+                : "none";
+    }
+
+
+    if (keychainSection) {
+        keychainSection.style.display =
+            category === "Keychains"
+                ? "block"
+                : "none";
+    }
+
+
+    if (category === "Phone Charms") {
+
+        const phoneContainer =
+            document.getElementById("phone-charm-products");
+
+        if (phoneContainer) {
+            phoneContainer.innerHTML = `
+                <div class="empty-category-message">
+                    <p>Choose a style ✨</p>
+                </div>
+            `;
+        }
+    }
+
+
+    const shopSection =
+        document.getElementById("shop");
+
+    if (shopSection) {
+        shopSection.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+
+
+// ================================
+// CART — ADD
 // ================================
 
 function addToCart(productId) {
 
-    const product = products.find(
-        product => product.id === productId
-    );
+    const product =
+        products.find(
+            product => product.id === productId
+        );
+
 
     if (!product) {
         return;
     }
 
-    const existingProduct = cart.find(
-        item => item.id === productId
-    );
+
+    const existingProduct =
+        cart.find(
+            item => item.id === productId
+        );
+
 
     if (existingProduct) {
 
@@ -131,15 +258,15 @@ function addToCart(productId) {
             ...product,
             quantity: 1
         });
-
     }
 
+
     updateCart();
+
 
     alert(
         `${product.name} added to your cart! 💜`
     );
-
 }
 
 
@@ -158,8 +285,10 @@ function updateCart() {
     const cartTotal =
         document.getElementById("cart-total");
 
-    const orderMessage =
-        document.getElementById("order-message");
+
+    if (!cartItems) {
+        return;
+    }
 
 
     cartItems.innerHTML = "";
@@ -178,7 +307,9 @@ function updateCart() {
             const cartItem =
                 document.createElement("div");
 
-            cartItem.className = "cart-item";
+            cartItem.className =
+                "cart-item";
+
 
             cartItem.innerHTML = `
 
@@ -224,71 +355,39 @@ function updateCart() {
 
             `;
 
+
             cartItems.appendChild(cartItem);
-
         });
-
     }
 
 
-    // ================================
-    // CART COUNT
-    // ================================
-
-    const totalItems = cart.reduce(
-        (sum, item) => sum + item.quantity,
-        0
-    );
-
-    cartCount.textContent = totalItems;
+    const totalItems =
+        cart.reduce(
+            (sum, item) =>
+                sum + item.quantity,
+            0
+        );
 
 
-    // ================================
-    // CART TOTAL
-    // ================================
-
-    const totalPrice = cart.reduce(
-        (sum, item) =>
-            sum + (item.price * item.quantity),
-        0
-    );
-
-    cartTotal.textContent =
-        `₹${totalPrice}`;
-
-
-    // ================================
-    // ORDER MESSAGE
-    // ================================
-
-    if (orderMessage) {
-
-        if (cart.length === 0) {
-
-            orderMessage.value =
-                "Your cart is empty.";
-
-        } else {
-
-            let message =
-                "New MissHands Order\n\n";
-
-            cart.forEach(item => {
-
-                message +=
-                    `${item.name} × ${item.quantity} = ₹${item.price * item.quantity}\n`;
-
-            });
-
-            message +=
-                `\nTotal: ₹${totalPrice}`;
-
-            orderMessage.value = message;
-
-        }
-
+    if (cartCount) {
+        cartCount.textContent =
+            totalItems;
     }
 
+
+    const totalPrice =
+        cart.reduce(
+            (sum, item) =>
+                sum +
+                (item.price * item.quantity),
+            0
+        );
+
+
+    if (cartTotal) {
+        cartTotal.textContent =
+            `₹${totalPrice}`;
+    }
 }
 
 
@@ -298,10 +397,13 @@ function updateCart() {
 
 function increaseQuantity(index) {
 
+    if (!cart[index]) {
+        return;
+    }
+
     cart[index].quantity += 1;
 
     updateCart();
-
 }
 
 
@@ -311,16 +413,20 @@ function increaseQuantity(index) {
 
 function decreaseQuantity(index) {
 
-    cart[index].quantity -= 1;
-
-    if (cart[index].quantity <= 0) {
-
-        cart.splice(index, 1);
-
+    if (!cart[index]) {
+        return;
     }
 
-    updateCart();
 
+    cart[index].quantity -= 1;
+
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+
+    updateCart();
 }
 
 
@@ -330,10 +436,14 @@ function decreaseQuantity(index) {
 
 function removeFromCart(index) {
 
+    if (!cart[index]) {
+        return;
+    }
+
+
     cart.splice(index, 1);
 
     updateCart();
-
 }
 
 
@@ -346,10 +456,15 @@ function openCart() {
     const cartOverlay =
         document.getElementById("cart-overlay");
 
-    cartOverlay.classList.add("active");
 
-    updateCart();
+    if (cartOverlay) {
 
+        cartOverlay.classList.add(
+            "active"
+        );
+
+        updateCart();
+    }
 }
 
 
@@ -362,13 +477,18 @@ function closeCart() {
     const cartOverlay =
         document.getElementById("cart-overlay");
 
-    cartOverlay.classList.remove("active");
 
+    if (cartOverlay) {
+
+        cartOverlay.classList.remove(
+            "active"
+        );
+    }
 }
 
 
 // ================================
-// WEB3FORMS ORDER SUBMISSION
+// WEB3FORMS ORDER
 // ================================
 
 const orderForm =
@@ -391,7 +511,33 @@ if (orderForm) {
                 );
 
                 return;
+            }
 
+
+            const orderDetails =
+                cart.map(item =>
+                    `${item.name} - ₹${item.price} × ${item.quantity}`
+                ).join("\n");
+
+
+            const orderMessage =
+                document.getElementById(
+                    "order-message"
+                );
+
+
+            if (orderMessage) {
+
+                orderMessage.value =
+                    `MissHands Order\n\n` +
+                    `${orderDetails}\n\n` +
+                    `Total: ₹${cart.reduce(
+                        (sum, item) =>
+                            sum +
+                            item.price *
+                            item.quantity,
+                        0
+                    )}`;
             }
 
 
@@ -401,10 +547,14 @@ if (orderForm) {
                 );
 
 
-            submitButton.disabled = true;
+            if (submitButton) {
 
-            submitButton.textContent =
-                "Sending Order... 💜";
+                submitButton.disabled =
+                    true;
+
+                submitButton.textContent =
+                    "Sending Order... 💜";
+            }
 
 
             const formData =
@@ -442,33 +592,32 @@ if (orderForm) {
 
                     closeCart();
 
-
                 } else {
 
                     alert(
                         "Something went wrong. Please try again. 🪻"
                     );
-
                 }
-
 
             } catch (error) {
 
                 alert(
                     "Unable to send the order right now. Please try again."
                 );
-
             }
 
 
-            submitButton.disabled = false;
+            if (submitButton) {
 
-            submitButton.textContent =
-                "Place Order 💌";
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Place Order 💌";
+            }
 
         }
     );
-
 }
 
 
@@ -476,6 +625,5 @@ if (orderForm) {
 // START WEBSITE
 // ================================
 
-displayProducts();
-
+displayAllProducts();
 updateCart();
